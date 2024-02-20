@@ -29,9 +29,9 @@ public class Main {
             return;
         }
 
-        String secretCode = generateSecretCode3(userInputLengthOfSecretCode, userInputNrOfPosSymbols)[0];
+        String secretCode = generateSecretCode(userInputLengthOfSecretCode, userInputNrOfPosSymbols)[0];
         System.out.print("The secret is prepared: ");
-        System.out.println("*".repeat(userInputLengthOfSecretCode) + generateSecretCode3(userInputLengthOfSecretCode, userInputNrOfPosSymbols)[1]);
+        System.out.println("*".repeat(userInputLengthOfSecretCode) + generateSecretCode(userInputLengthOfSecretCode, userInputNrOfPosSymbols)[1]);
 
         System.out.println("Okay, let's start a game!");
 
@@ -47,7 +47,6 @@ public class Main {
 
             counter++;
         }
-        // System.out.println("Grade: " + bullCounter + " bulls");
         System.out.println("Congratulations! You guessed the secret code.");
 
     }
@@ -90,7 +89,7 @@ public class Main {
         return bullCounter;
     }
 
-    private static String[] generateSecretCode3(int userInputLength, int userInputPosSymbols) {
+    private static String[] generateSecretCode(int userInputLength, int userInputPosSymbols) {
         String allChars = "0123456789abcdefghijklmnopqrstuvwxyz";
         String posCharsUser = allChars.substring(0, userInputPosSymbols);
 
@@ -106,7 +105,6 @@ public class Main {
             }
         }
 
-
         List<String> posCharsList = Arrays.asList(posCharsByUser);
         Collections.shuffle(posCharsList);
 
@@ -120,9 +118,8 @@ public class Main {
                 mySecretCode.append(current);
             }
         }
-        String[] output = {mySecretCode.toString(), anzeige};
 
-        return output;
+        return new String[]{mySecretCode.toString(), anzeige};
     }
 
 
